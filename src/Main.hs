@@ -15,7 +15,12 @@ import Cl
 
 
 main :: IO ()
-main = serve Nothing myApp
+main = do
+  appPort <- getPort
+  let conf = defaultServerConfig { port = appPort }
+  serve conf myApp
+
+
 
 myApp :: ServerPart Response
 myApp = msum
@@ -54,6 +59,11 @@ foo p =
        --       ("foo {bar: baz}"::Text)
   else ok $ toResponse (""::Text)
 
+
+getPort = catch (getEnv "PORT")
+          (\e-> do
+              putStrLn (show (e :: IOError))
+              return "8080")
 
 {-
 import System.Environment
