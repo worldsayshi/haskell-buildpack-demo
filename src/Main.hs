@@ -10,15 +10,19 @@ import Text.Blaze.Html5 (Html, (!), a, form, input, p, toHtml, label)
 import Text.Blaze.Html5.Attributes (action, enctype, href, name, size, type_, value)
 import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
+import Control.Exception
+import System.Environment
+import Prelude hiding (catch)
 
 import Cl
+
 
 
 main :: IO ()
 main = do
   appPort <- getPort
-  let conf = defaultServerConfig { port = appPort }
-  serve conf myApp
+  let conf = defaultServerConfig { port = read appPort }
+  serve (Just conf) myApp
 
 
 
