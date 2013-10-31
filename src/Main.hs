@@ -37,7 +37,7 @@ myApp = let
   in msum
         [
           dir "style"   $ styles,
-          dir "files"   $ fileServing,
+          dir "static"   $ fileServing,
           homePage
         ]
 
