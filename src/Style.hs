@@ -1,8 +1,11 @@
-module Cl (foocss) where
+{-# LANGUAGE
+    OverloadedStrings
+  #-}
+module Style (mycss) where
 
 import Clay
 
-foocss = (render $ style)
-
-style = do p ?
-             color red
+mycss = render $ p ?
+        do
+          color red
+          background white

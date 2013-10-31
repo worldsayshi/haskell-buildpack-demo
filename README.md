@@ -1,27 +1,10 @@
-# Haskell Buildpack Demo
+A simple hello world Happstack Lite example that should be deploy-able on Heroku. 
 
-This demo is live on Heroku:
+It is also using Clay for generating css on request.
 
-http://haskell-buildpack-demo.herokuapp.com/
+Adapted from https://github.com/puffnfresh/haskell-buildpack-demo
 
-It uses the Haskell Buildpack:
-
-https://github.com/pufuwozu/heroku-buildpack-haskell
-
-## Pushing to Heroku
-
-Clone this repository:
-
-    git clone https://github.com/pufuwozu/haskell-buildpack-demo.git
-
-Create a new Heroku application:
+How to deploy:
 
     heroku create --stack=cedar --buildpack https://github.com/pufuwozu/heroku-buildpack-haskell.git
-
-Push!
-
     git push heroku master
-
-*Note*: the push will take some time to install dependencies and might
-not show any output for quite a while. It will also show a lot of
-warnings.
